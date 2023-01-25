@@ -17,7 +17,7 @@ onMounted(() => {
 
 <template>
   <PageHeader>
-    <h1>Search Results from "{{ query }}"</h1>
+    <h1>Search Results for "{{ query }}"</h1>
   </PageHeader>
   <ul>
     <ImageCollection
