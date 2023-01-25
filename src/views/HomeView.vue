@@ -8,7 +8,7 @@ import LoadingPlaceHolder from "../components/LoadingPlaceHolder.vue";
 const search = ref("");
 const rout = useRouter();
 
-let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african people&orientation=portrait`;
+let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african&orientation=squarish`;
 const { fetchData, photos, loading } = getData(url);
 
 onMounted(() => {
@@ -30,7 +30,7 @@ const getSearchValue = (e) => {
         type="text"
         name="search"
         id="search"
-        placeholder="search for photo"
+        placeholder="Search for photo"
         v-model="search"
       />
     </form>
@@ -48,13 +48,14 @@ const getSearchValue = (e) => {
       :altdesc="photo.alt_description"
       :name="photo.user.name"
       :location="photo.user.location"
+      :regular="photo.urls.regular"
     />
   </ul>
 </template>
 
 <style>
 form {
-  width: 70%;
+  width: 65%;
   height: 50px;
 }
 input {
@@ -62,7 +63,15 @@ input {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  padding: 1em;
+  padding: 1em 2.5em;
   outline: 0;
+  background-image: url("./find.svg");
+  background-repeat: no-repeat;
+  background-position: 1%;
+  background-size: 20px;
+  border: 1px solid gray;
+}
+input:focus {
+  border: 2px solid purple;
 }
 </style>
