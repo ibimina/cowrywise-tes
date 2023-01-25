@@ -35,19 +35,14 @@ img {
 .details {
   position: absolute;
   bottom: 1em;
-  right: 1em;
+  left: 1em;
 }
 @media (min-width: 40rem) {
-  .photo:nth-child(2n-1) {
+  .photo:nth-child(2n) {
     grid-row: span 3;
   }
-  .photo:nth-child(2n) {
+  .photo:nth-child(2n-1) {
     grid-row: span 2;
-  }
-}
-@media (min-width: 60rem) {
-  .photo:nth-child(2n) {
- 
   }
 }
 </style>
