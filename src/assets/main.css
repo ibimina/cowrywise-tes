@@ -24,3 +24,31 @@ body {
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
 }
+ul{
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+   grid-template-columns: 1fr;
+   grid-auto-rows: 350px;
+  gap: 16px;
+  position: relative;
+  top: -2em;
+}
+li{
+  list-style:none;
+}
+@media (min-width: 40rem){
+ul{
+  grid-template-columns: repeat(2, 1fr);
+     grid-auto-rows: 125px;
+}
+}
+@media (min-width: 60rem){
+ul{
+  grid-template-columns: repeat(3, 1fr);
+}
+}
