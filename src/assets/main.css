@@ -1,11 +1,13 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
+  --pl-b-grey: hsl(0, 3%, 94%);
+  --pl-c-grey:hsl(0, 0%, 85%);
 }
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
+  --placeholder-background: var(--pl-b-grey);
+  --placeholder-text: var(--pl-c-grey);
 }
 
 *,
@@ -24,16 +26,20 @@ body {
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
 }
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5em;
+}
 ul{
   padding: 0;
-  max-width: 600px;
-  width: 90%;
+  width: 60%;
   display: grid;
-  justify-content: center;
   align-items: center;
-  margin: auto;
-   grid-template-columns: 1fr;
-   grid-auto-rows: 350px;
+  margin:0 auto;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 350px;
   gap: 16px;
   position: relative;
   top: -2em;
