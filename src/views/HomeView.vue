@@ -4,11 +4,12 @@ import { useRouter } from "vue-router";
 import PageHeader from "../components/PageHeader.vue";
 import ImageCollection from "../components/ImageCollection.vue";
 import getData from "../hooks/FetchData";
+import LoadingPlaceHolder from "../components/LoadingPlaceHolder.vue";
 const search = ref("");
 const rout = useRouter();
 
 let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african people&orientation=portrait`;
-const { fetchData, photos } = getData(url);
+const { fetchData, photos, loading } = getData(url);
 
 onMounted(() => {
   fetchData();
@@ -34,9 +35,13 @@ const getSearchValue = (e) => {
       />
     </form>
   </PageHeader>
-  
+  <div v-if="photos.length === 0 && !loading" class="center">
+    <h1>No pictures found</h1>
+  </div>
   <ul>
+    <LoadingPlaceHolder v-if="loading" />
     <ImageCollection
+      v-else
       v-for="photo in photos"
       :key="photo.id"
       :image="photo.urls.small_s3"
