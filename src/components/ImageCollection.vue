@@ -1,5 +1,4 @@
 <script setup>
-// import { defineProps } from "vue";
 defineProps({
   image: { type: String, required: true },
   altdesc: { type: String, required: true },
