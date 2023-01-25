@@ -1,9 +1,62 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import PageHeader from "../components/PageHeader.vue";
+import ImageCollection from "../components/ImageCollection.vue";
+import getData from "../hooks/FetchData";
+const search = ref("");
+const rout = useRouter();
+
+let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african people`;
+const { fetchData, photos } = getData(url);
+
+onMounted(() => {
+  fetchData();
+});
+
+const getSearchValue = (e) => {
+  e.preventDefault();
+  if (search.value.trim() !== "") {
+    rout.push(`/search?q=${search.value}`);
+  }
+};
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <PageHeader>
+    <form @submit="getSearchValue">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="search for photo"
+        v-model="search"
+      />
+    </form>
+  </PageHeader>
+  <ul>
+    <ImageCollection
+      v-for="photo in photos"
+      :key="photo.id"
+      :image="photo.urls.small_s3"
+      :altdesc="photo.alt_description"
+      :name="photo.user.name"
+      :location="photo.user.location"
+    />
+  </ul>
 </template>
+
+<style>
+form {
+  width: 70%;
+  height: 50px;
+}
+input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  padding: 1em;
+  outline: 0;
+}
+</style>
