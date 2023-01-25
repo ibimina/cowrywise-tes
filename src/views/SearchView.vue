@@ -21,7 +21,9 @@ onMounted(() => {
 
 <template>
   <PageHeader>
-    <h1 class="title">Search Results for "{{ query }}"</h1>
+    <h1 class="title">
+      Search Results for <span class="query">"{{ query }}"</span>
+    </h1>
     <button @click="handleGoHome" class="back" aria-label="go back"></button>
   </PageHeader>
   <div v-if="photos.length === 0 && !loading" class="center">
@@ -43,10 +45,16 @@ onMounted(() => {
 
 <style>
 .title {
-  font-size: 24px;
+  font-size: 28px;
+  color: rgb(58, 49, 95);
+  font-weight: 700;
+  width: 60%;
+}
+.query {
+  color: rgb(116, 106, 116);
 }
 .back {
-  background-color: rgba(90, 79, 79, 0.6);
+  background-color: rgba(27, 17, 17, 0.6);
   background-image: url("./icon-back.png");
   left: 2em;
   top: 1.5em;
