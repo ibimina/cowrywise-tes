@@ -7,7 +7,7 @@ import getData from "../hooks/FetchData";
 const search = ref("");
 const rout = useRouter();
 
-let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african people`;
+let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=african people&orientation=portrait`;
 const { fetchData, photos } = getData(url);
 
 onMounted(() => {
@@ -34,6 +34,7 @@ const getSearchValue = (e) => {
       />
     </form>
   </PageHeader>
+  
   <ul>
     <ImageCollection
       v-for="photo in photos"
