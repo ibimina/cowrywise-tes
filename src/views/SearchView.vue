@@ -9,7 +9,7 @@ import getData from "../hooks/FetchData";
 const rout = useRoute();
 let query = rout.query.q;
 const router = useRouter();
-let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=${query}`;
+let url = `https://api.unsplash.com/search/photos/?client_id=Oydq01Zm1WrrZnJDq2PJBb-POJQD_IIsNje-jWBNC94&query=${query}&orientation=squarish`;
 const { fetchData, photos, loading } = getData(url);
 const handleGoHome = () => {
   router.push("/");
@@ -36,6 +36,7 @@ onMounted(() => {
       :altdesc="photo.alt_description"
       :name="photo.user.name"
       :location="photo.user.location"
+      :regular="photo.urls.regular"
     />
   </ul>
 </template>
@@ -46,14 +47,7 @@ onMounted(() => {
 }
 .back {
   background-color: rgba(90, 79, 79, 0.6);
-  cursor: pointer;
   background-image: url("./icon-back.png");
-  position: absolute;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 18px;
-  height: 20px;
   left: 2em;
   top: 1.5em;
   border: 1px solid;
