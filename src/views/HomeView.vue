@@ -20,6 +20,7 @@ const getSearchValue = (e) => {
   if (search.value.trim() !== "") {
     rout.push(`/search?q=${search.value}`);
   }
+  search.value = "";
 };
 </script>
 
@@ -70,6 +71,7 @@ input {
   background-position: 1%;
   background-size: 20px;
   border: 1px solid gray;
+  box-shadow: 1px 1px 5px rgba(51, 51, 51, 0.5);
 }
 input:focus {
   border: 2px solid purple;
