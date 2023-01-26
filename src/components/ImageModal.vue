@@ -52,7 +52,7 @@ const emit = defineEmits(["close"]);
 
 .close {
   background-color: transparent;
-  background-image: url("./icon-close.svg");
+  background-image: url("../../icon-close.svg");
   right: 1em;
   top: 1em;
   border: none;

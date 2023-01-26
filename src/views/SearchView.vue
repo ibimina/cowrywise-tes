@@ -60,7 +60,7 @@ onMounted(() => {
 }
 .back {
   background-color: rgba(27, 17, 17, 0.6);
-  background-image: url("./icon-back.png");
+  background-image: url("../../public/icon-back.png");
   left: 1em;
   top: 1.5em;
   border: 1px solid;
