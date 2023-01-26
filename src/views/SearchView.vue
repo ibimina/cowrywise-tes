@@ -20,7 +20,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <PageHeader>
+  <PageHeader v-if="loading">
+    <h1 class="title">
+      Searching for <span class="query">"{{ query }}"</span>
+    </h1>
+  </PageHeader>
+  <PageHeader v-else>
     <h1 class="title">
       Search Results for <span class="query">"{{ query }}"</span>
     </h1>
@@ -45,10 +50,10 @@ onMounted(() => {
 
 <style>
 .title {
-  font-size: 28px;
+  font-size: 16px;
   color: rgb(58, 49, 95);
   font-weight: 700;
-  width: 60%;
+  width: 70%;
 }
 .query {
   color: rgb(116, 106, 116);
@@ -56,7 +61,7 @@ onMounted(() => {
 .back {
   background-color: rgba(27, 17, 17, 0.6);
   background-image: url("./icon-back.png");
-  left: 2em;
+  left: 1em;
   top: 1.5em;
   border: 1px solid;
   padding: 1em;
@@ -77,5 +82,11 @@ onMounted(() => {
 }
 .back:hover.back::after {
   display: block;
+}
+@media screen and (min-width: 40rem) {
+  .title {
+    font-size: 28px;
+    width: 70%;
+  }
 }
 </style>
